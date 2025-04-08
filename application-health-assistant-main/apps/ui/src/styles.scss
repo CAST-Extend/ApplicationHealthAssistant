@@ -1,0 +1,70 @@
+@import 'app/main';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@ng-select/ng-select/themes/default.theme.css';
+@font-face {
+    font-family: 'MMC Display-Bold';
+    src: url('assets/fonts/MMCDisplay_A_Bd.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MMC Display-Regular';
+    src: url('assets/fonts/MMCDisplay_A_Rg.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MMC Display-Condensed-Bold';
+    src: url('assets/fonts/MMCDisplayCd_A_Bd.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MMC Display-Condensed-Regular';
+    src: url('assets/fonts/MMCDisplayCd_A_Rg.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans';
+    src: url('assets/fonts/NotoSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-Light';
+    src: url('assets/fonts/NotoSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-Bold';
+    src: url('assets/fonts/NotoSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-Italic';
+    src: url('assets/fonts/NotoSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-LightItalic';
+    src: url('assets/fonts/NotoSans-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-BoldItalic';
+    src: url('assets/fonts/NotoSans-BoldItalic.ttf') format('truetype');
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}

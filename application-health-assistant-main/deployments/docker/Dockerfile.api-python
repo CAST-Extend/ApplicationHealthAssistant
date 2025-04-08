@@ -1,0 +1,55 @@
+FROM base-images.mgti-dal-so-art.mrshmc.com/mmc/ubuntu/python:3.13-focal AS base
+
+LABEL APPLICATIONKEY "AHA"
+
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get install -y jq unzip \
+    && apt-get clean
+
+#RUN apt-get update -qq \
+#    && apt-get install -y jq unzip \
+#    && apt-get clean
+
+# ARG PLATFORM_VAULT_CLI_VERSION=v0.0.3
+# # Install the platform CLI to be used for authenticating with Hashicorp Vault in AWS.
+# RUN curl -L -o mpc https://mgti-dal-so-art.mrshmc.com/artifactory/raw/mmc-platform-cli/${PLATFORM_VAULT_CLI_VERSION} \
+#     && chmod +x mpc \
+#     && mv ./mpc /usr/bin
+
+ARG PLATFORM_VAULT_CLI_VERSION
+# Install the platform CLI to be used for authenticating with Hashicorp Vault in AWS.
+RUN PLATFORM_VAULT_CLI_VERSION=$(curl -s https://mgti-dal-so-art.mrshmc.com/artifactory/raw/mmc-platform-cli/latest.txt) && curl -L -o mpc https://mgti-dal-so-art.mrshmc.com/artifactory/raw/mmc-platform-cli/${PLATFORM_VAULT_CLI_VERSION} \
+    && chmod +x mpc \
+    && mv ./mpc /usr/bin
+
+FROM base as prod
+
+RUN pip install --upgrade pip
+
+RUN useradd -m python
+USER python
+RUN mkdir -p /home/python/app
+WORKDIR /home/python/app
+
+USER root
+
+COPY --chown=python:python ./deployments/docker/entrypoint.sh ./entrypoint.sh
+
+RUN chmod u+x entrypoint.sh
+
+COPY --chown=python:python ./apps/api-python/ /home/python/app/
+#COPY --chown=python:python ./apps/api-python/requirements.txt /home/python/app/
+
+RUN pip install -r requirements.txt
+
+RUN pip uninstall -y six
+
+RUN pip install six
+
+EXPOSE 8081
+
+ENV APP_TYPE API_PYTHON
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["python3", "app.py"]

@@ -1,0 +1,58 @@
+{
+    "images": [
+        {
+            "image-name": "api-e2e",
+            "dockerfile": "./deployments/docker/Dockerfile.api-e2e",
+            "distLocation": "./dist/apps/api-e2e/"
+        },
+        {
+            "image-name": "api",
+            "dockerfile": "./deployments/docker/Dockerfile.api",
+            "distLocation": "./dist/apps/api/"
+        },
+        {
+            "image-name": "ui",
+            "dockerfile": "./deployments/docker/Dockerfile.ui",
+            "distLocation": "./dist/apps/ui/"
+        },
+        {
+            "image-name": "api-python",
+            "dockerfile": "./deployments/docker/Dockerfile.api-python",
+            "distLocation": "./dist/apps/api-python/"
+        }
+    ],
+    "apps": [
+        {
+            "name": "api",
+            "jobs": {
+                "monitor-rollout": true,
+                "monitor-rollout-timeout-mins": 5
+            }
+        },
+        {
+            "name": "ui",
+            "jobs": {
+                "monitor-rollout": true,
+                "monitor-rollout-timeout-mins": 5
+            }
+        },
+        {
+            "name": "api-python",
+            "jobs": {
+                "monitor-rollout": true,
+                "monitor-rollout-timeout-mins": 5
+            }
+        }
+    ],
+    "updaters": [],
+    "tests": [
+        {
+            "name": "api-e2e",
+            "jobs": {
+                "monitor-rollout": false,
+                "preemptive-delete": true,
+                "delete-job": true
+            }
+        }
+    ]
+}

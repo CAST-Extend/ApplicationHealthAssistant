@@ -1,0 +1,81 @@
+<section>
+    <div class="body">
+        <!-- <div id="cover-spin" *ngIf="spinnerDisplay"></div> -->
+        <div>
+            <span class="title">Admin Dashboard</span>
+        </div>
+        <!-- <div class="adminNav">
+            <button mat-flat-button class="adminNavLinks">New Project Onboard</button>
+            <button mat-flat-button class="adminNavLinks">Add Prompt</button>
+        </div> -->
+
+        <div>
+            <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+            <!-- The toolbar of our app -->
+            <div class="row">
+                <p class="titleDetail">Application List</p>
+
+                <button
+                    class="addAppBtn"
+                    mat-raised-button
+                    color="accent"
+                    (click)="openAddEditAppDialog()"
+                >
+                    New Application
+                </button>
+            </div>
+
+            <!-- The body of our app -->
+            <div class="main-body">
+                <div class="table-container">
+                    <table mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="SSP_AppName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cast App Name</th>
+                            <td mat-cell *matCellDef="let row">{{ row.SSP_AppName }}</td>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="CAST_AppName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                CAST API App Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.CAST_AppName }}</td>
+                        </ng-container> -->
+                        <ng-container matColumnDef="CastKey">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cast Key</th>
+                            <td mat-cell *matCellDef="let row">{{ row.CastKey }}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="ProductCode">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Code</th>
+                            <td mat-cell *matCellDef="let row">{{ row.ProductCode }}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                            <td mat-cell *matCellDef="let row">
+                                <span
+                                    (click)="openEditForm(row)"
+                                    class="action-icon"
+                                    style="margin-right: 5px"
+                                >
+                                    <mat-icon color="primary">edit</mat-icon>
+                                </span>
+                                <span
+                                    (click)="deleteApplication(row.id, row.SSP_AppName)"
+                                    class="action-icon"
+                                >
+                                    <mat-icon color="warn">delete</mat-icon>
+                                </span>
+                            </td>
+                        </ng-container>
+                        <tr
+                            mat-header-row
+                            [ngClass]="'highlight-table-header'"
+                            *matHeaderRowDef="displayedColumns; sticky: true"
+                        ></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

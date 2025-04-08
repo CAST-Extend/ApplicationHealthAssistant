@@ -1,0 +1,210 @@
+.body {
+    padding: 15px 20px 20px 20px !important;
+    margin: 10px 10px 10px 10px !important;
+    max-width: 1450px !important;
+    background-color: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.appVulDetails {
+    margin-bottom: 10px !important;
+    font-size: small !important;
+}
+
+.spanHeading {
+    font-weight: bold !important;
+    color: #082c74 !important;
+    font-size: 12px !important ;
+}
+
+.repositoryLink {
+    color: #082c74 !important;
+    font-size: 12px !important;
+}
+
+.detailHeader {
+    margin: 10px 0 !important;
+    border-bottom: 2px solid #082c74 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.detailHeaderInfo {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.detailHeaderInfoCaption {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #082c74 !important;
+    margin-left: 1% !important;
+}
+
+.feedbackButton {
+    background-color: #082c74 !important;
+    color: white !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease !important;
+    font-size: 12px !important;
+}
+
+.button-container {
+    margin-left: auto !important;
+}
+
+.feedbackButton:hover {
+    background-color: #0056b3 !important;
+}
+
+.backButton {
+    border: 2px solid #082c74 !important;
+    color: #082c74 !important;
+    background: #ffffff !important;
+    border-radius: 4px !important;
+    transition: background-color 0.3s ease !important;
+    font-size: 12px !important;
+}
+
+.backButton:hover {
+    background-color: #e0e0e0 !important;
+}
+
+.tableContainer {
+    margin-top: 10px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    max-height: 325px !important;
+    overflow-y: auto !important;
+}
+
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+th {
+    background-color: #082c74 !important;
+    color: #ffffff !important;
+    padding: 6px !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    top: 0;
+    z-index: 10;
+}
+
+td {
+    padding: 6px !important;
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    text-align: left !important;
+}
+
+.issue-column {
+    width: 80px !important;
+}
+
+tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.fixButton {
+    background-color: #082c74 !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    font-size: 12px !important;
+    min-width: 50px !important;
+}
+.centered-text {
+    // text-align: center !important;
+}
+.fixButton:hover {
+    background-color: #0056b3 !important;
+}
+
+.highlight-disabled {
+    background-color: #d3d3d3 !important;
+    color: #ffffff !important;
+    cursor: not-allowed !important;
+}
+
+.highlight-disabled.fixButton:hover {
+    background-color: #d3d3d3 !important;
+    color: #ffffff !important;
+    cursor: not-allowed !important;
+}
+
+.objLink {
+    color: #082c74 !important;
+    text-decoration: underline !important;
+    display: inline-block !important;
+    margin-bottom: 5px !important;
+}
+
+.objLink:hover {
+    cursor: pointer !important;
+    color: #0056b3 !important;
+}
+
+.loader {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+#cover-spin {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    z-index: 9999 !important;
+}
+
+#cover-spin::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 4px solid #000 !important;
+    border-top-color: transparent !important;
+    border-radius: 50% !important;
+    animation: spin 0.8s linear infinite !important;
+}
+.mat-mdc-header-row {
+    height: 45px !important;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg) !important;
+    }
+    to {
+        transform: rotate(360deg) !important;
+    }
+}
+.mat-column-files {
+    max-width: 80px !important;
+}
+.mat-column-selectObj {
+    max-width: 90px !important;
+}
+.mat-column-status {
+    max-width: 105px !important;
+}
+.mat-column-fix {
+    text-align: center !important;
+}
+.mat-column-statusDetail {
+    text-align: center !important;
+}

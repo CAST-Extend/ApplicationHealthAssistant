@@ -1,0 +1,130 @@
+<div>
+    <div class="status-header">
+        <h2 style="font-size: 14px !important">Fix Details</h2>
+    </div>
+    <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+    <div id="cover-spin-raise-pull-req" *ngIf="pullReqInPro"></div>
+    <div class="status-content" *ngIf="reqStatList?.length > 0">
+        <span class="reqContent">
+            <b
+                >Issue:{{ getObjDetails?.rowData?.issue }}, Objects Status:
+                {{ getObjDetails?.rowData?.objRetensionCount }}/{{ getObjDetails?.rowData.obj }}</b
+            >
+        </span>
+        <div class="reqDiv">
+            <div class="eachReq" *ngFor="let status of reqStatList; let i = index">
+                <div class="left-aligned">
+                    <span class="reqContent">
+                        Fix Objects:
+                        <a
+                            (click)="
+                                openObjDetail(status?.request[0]?.requestdetail[0]?.objectdetails)
+                            "
+                            class="objDetailLink"
+                        >
+                            {{ status?.request[0]?.requestdetail[0]?.objectdetails.length }} </a
+                        >, Status:
+                        <span
+                            *ngIf="
+                                status?.request[0]?.status == 'success' ||
+                                    status?.request[0]?.status == 'Queued';
+                                else failDetails
+                            "
+                        >
+                            <b
+                                *ngIf="
+                                    status?.request[0]?.status == 'success' &&
+                                    !status?.request[0]?.pullreqraised
+                                "
+                                >Response Success (PR Awaited)</b
+                            >
+                            <b
+                                *ngIf="
+                                    status?.request[0]?.status == 'success' &&
+                                    status?.request[0]?.pullreqraised
+                                "
+                                >Completed</b
+                            >
+                            <b *ngIf="status?.request[0]?.status == 'Queued'">Response Queued</b>
+                        </span>
+                    </span>
+                    <ng-template #failDetails>
+                        <span>
+                            <a
+                                (click)="openReqDetailStatus(status?.request[0])"
+                                class="objDetailLink"
+                            >
+                                <b>{{ status?.request[0]?.status }}</b>
+                            </a>
+                        </span>
+                    </ng-template>
+                </div>
+                <div class="button-div">
+                    <button
+                        *ngIf="
+                            status?.request[0]?.status == 'Unmodified' ||
+                            status?.request[0]?.status == 'failure' ||
+                            status?.request[0]?.status == 'partial success'
+                        "
+                        (click)="retryPythonAiReq(status)"
+                        class="retryButton"
+                        [ngClass]="{ 'highlight-disabled': status?.request[0]?.pullreqraised }"
+                        [disabled]="status?.request[0]?.pullreqraised"
+                        mat-flat-button
+                    >
+                        Retry
+                    </button>
+                    <button
+                        (click)="createPullReq(status)"
+                        [ngClass]="{
+                            'highlight-disabled':
+                                status?.request[0]?.status === 'failure' ||
+                                status?.request[0]?.status === 'Queued' ||
+                                status?.request[0]?.status === 'Unmodified' ||
+                                status?.request[0]?.pullreqraised,
+                        }"
+                        [disabled]="
+                            status?.request[0]?.status === 'failure' ||
+                            status?.request[0]?.status === 'Queued' ||
+                            status?.request[0]?.status === 'Unmodified' ||
+                            status?.request[0]?.pullreqraised
+                        "
+                        class="createPullReqButton"
+                        mat-flat-button
+                    >
+                        Raise pull request
+                    </button>
+                </div>
+                <div>
+                    <mat-horizontal-stepper headerPosition="bottom" #stepper linear>
+                        <mat-step [completed]="true" state="done" [editable]="false">
+                            <ng-template matStepLabel>Request Initiated</ng-template>
+                        </mat-step>
+                        <mat-step
+                            [completed]="status?.request[0]?.status !== 'Queued'"
+                            matStepperIcon="account_circle"
+                            [editable]="false"
+                        >
+                            <ng-template matStepLabel>Engine response</ng-template>
+                        </mat-step>
+                        <mat-step
+                            [completed]="status?.request[0]?.pullreqraised"
+                            [editable]="false"
+                        >
+                            <ng-template matStepLabel>Github pull request</ng-template>
+                        </mat-step>
+                        <ng-template matStepperIcon="done">
+                            <mat-icon>done</mat-icon>
+                        </ng-template>
+                    </mat-horizontal-stepper>
+                </div>
+            </div>
+        </div>
+        <div class="noReqData" *ngIf="reqStatList?.length == 0">
+            <span><b>Request not found !</b></span>
+        </div>
+    </div>
+    <div class="ai-req">
+        <button mat-button mat-dialog-close class="closeButton">Close</button>
+    </div>
+</div>

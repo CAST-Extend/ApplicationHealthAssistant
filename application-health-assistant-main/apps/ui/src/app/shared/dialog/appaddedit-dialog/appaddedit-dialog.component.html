@@ -1,0 +1,72 @@
+<div class="dialogTitle">
+    <h3>{{ formType ? 'Add' : 'Edit' }} Application Form</h3>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>CAST Imaging API AppName</mat-label>
+                <!-- Edit mode: Show as read-only input -->
+                <input *ngIf="!formType" 
+                       matInput 
+                       formControlName="CAST_AppName" 
+                       readonly>
+                <!-- Add mode: Show as select dropdown -->
+                <mat-select *ngIf="formType" 
+                            formControlName="CAST_AppName" 
+                            (selectionChange)="onAppSelected($event)">
+                    <mat-option *ngFor="let app of availableApps" [value]="app.name">
+                        {{ app.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div class="errorDiv" *ngIf="castAppNameErrorHandler && castAppNameErrorHandler.isError">
+            <span>{{ castAppNameErrorHandler.errorMessage }}</span>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+        <mat-label>Repository URL:</mat-label>
+        <input matInput 
+               type="text" 
+               formControlName="Repository"
+               placeholder="Enter GitHub Repository URL">
+        <mat-error *ngIf="empForm.get('Repository')?.hasError('required')">
+            Repository URL is required.
+        </mat-error>
+        <mat-error *ngIf="empForm.get('Repository')?.hasError('pattern')">
+            Please enter a valid GitHub repository URL (e.g., https://github.com/user/repo).
+        </mat-error>
+			</mat-form-field>
+					<mat-radio-group aria-label="Select an option" 
+									 formControlName="CastHlOnboard"
+									 [disabled]="false"> <!-- Explicitly enabled -->
+						<mat-label><b>CastHL Onboard:</b></mat-label>
+						<mat-radio-button value="true">Yes</mat-radio-button>
+						<mat-radio-button value="false">No</mat-radio-button>
+					</mat-radio-group>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" 
+                             formControlName="AhaOnboard"
+                             [disabled]="false"> <!-- Explicitly enabled -->
+                <mat-label><b>AHA Onboard:</b></mat-label>
+                <mat-radio-button value="true">Yes</mat-radio-button>
+                <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button mat-button class="addButton"
+			[ngClass]="{ 'highlight-disabled': !empForm.valid || showError || spinnerDisplay }"
+			[disabled]="!empForm.valid || showError || spinnerDisplay"
+			type="submit">
+			{{ formType ? 'Save' : 'Update' }}
+		</button>
+        <button mat-button mat-dialog-close class="cancelButton">Cancel</button>
+    </div>
+</form>

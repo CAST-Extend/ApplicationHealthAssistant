@@ -1,0 +1,25 @@
+{
+    "applicationKey": "application-health-assistant",
+    "applicationCode": "AHA",
+    "polaris-schematic-node-microservice": [
+        {
+            "name": "api",
+            "directory": "",
+            "datastore": "mongodb",
+            "portNumber": "8080",
+            "e2eSuiteName": "api-e2e"
+        }
+    ],
+    "polaris-schematic-ui-angular": [
+        {
+            "name": "ui",
+            "directory": "",
+            "portNumber": "4200",
+            "targetApi": {
+                "name": "api",
+                "portNumber": 8080
+            }
+        }
+    ],
+    "svcAccCreationHandled": true
+}

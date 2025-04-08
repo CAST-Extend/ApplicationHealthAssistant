@@ -1,0 +1,64 @@
+<div class="dialogTitle">
+    <h2 class="feedback-header">Feedback</h2>
+</div>
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div>
+            <mat-form-field>
+                <div>Your Feedback Matters!</div>
+                <textarea
+                    matInput
+                    type="text"
+                    formControlName="feedback_description"
+                    rows="5"
+                ></textarea>
+            </mat-form-field>
+            <!-- <div class="rating">
+                <span
+                    class="star"
+                    (mouseover)="setHoverRating(1)"
+                    (mouseleave)="clearHoverRating()"
+                    (click)="setRating(1)"
+                    [class.selected]="hoverRating >= 1 || rating >= 1"
+                    >&#9733;</span
+                >
+                <span
+                    class="star"
+                    (mouseover)="setHoverRating(2)"
+                    (mouseleave)="clearHoverRating()"
+                    (click)="setRating(2)"
+                    [class.selected]="hoverRating >= 2 || rating >= 2"
+                    >&#9733;</span
+                >
+                <span
+                    class="star"
+                    (mouseover)="setHoverRating(3)"
+                    (mouseleave)="clearHoverRating()"
+                    (click)="setRating(3)"
+                    [class.selected]="hoverRating >= 3 || rating >= 3"
+                    >&#9733;</span
+                >
+                <span
+                    class="star"
+                    (mouseover)="setHoverRating(4)"
+                    (mouseleave)="clearHoverRating()"
+                    (click)="setRating(4)"
+                    [class.selected]="hoverRating >= 4 || rating >= 4"
+                    >&#9733;</span
+                >
+                <span
+                    class="star"
+                    (mouseover)="setHoverRating(5)"
+                    (mouseleave)="clearHoverRating()"
+                    (click)="setRating(5)"
+                    [class.selected]="hoverRating >= 5 || rating >= 5"
+                    >&#9733;</span
+                >
+            </div> -->
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button mat-button class="addButton" type="submit">Submit</button>
+        <button mat-button mat-dialog-close class="cancelButton">Cancel</button>
+    </div>
+</form>

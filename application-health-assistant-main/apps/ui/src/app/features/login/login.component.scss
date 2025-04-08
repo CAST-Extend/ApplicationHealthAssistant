@@ -1,0 +1,213 @@
+BODY,
+HTML {
+    font-family: 'Noto-Sans';
+    font-size: 14px;
+}
+::ng-deep #header {
+    display: none !important;
+}
+
+::ng-deep footer {
+    display: none !important;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 50vh; /* Full height of the viewport */
+    // background: url('/assets/image.png');
+    //      no-repeat center center; /* Optional background image */
+    //background-size: cover; /* Cover the entire area */
+}
+.welcome-title {
+    background-color: blue;
+    font-weight: bold; //   background: url('/assets/image.png');
+}
+
+.login-content {
+    align-items: center;
+    color: black;
+    background-color: rgb(255, 255, 255); /* White background with some transparency */
+    // padding: 20px;
+    // border-radius: 8px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    //  max-width: 400px; /* Max width for the login box */
+    width: 100%; /* Full width on smaller screens */
+    text-align: center; /* Center text */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    place-content: center;
+}
+div.body {
+    overflow: hidden;
+}
+.welcome-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.welcome-message {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.logout-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    width: 100%; /* Full width for form fields */
+    margin-bottom: 15px; /* Space between fields */
+}
+
+.button-container {
+    text-align: center !important;
+    margin-bottom: 10px !important;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+}
+.main {
+    margin-top: -3% !important;
+}
+.formclass {
+    // width: 40%;
+    align-items: center;
+    display: inline-block;
+    flex: unset;
+}
+
+.buttonlogin {
+    font-size: 1.125rem;
+
+    width: 18rem;
+    text-align: center;
+    //height: 35px;
+    background-color: rgba(0, 44, 119, 1);
+    color: white;
+    // border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    height: 3.375rem;
+    line-height: 2;
+    padding: 0 17px;
+    transition:
+        background-color ease 0.2s,
+        color ease 0.2s,
+        border-color ease 0.2s,
+        box-shadow ease 0.2s;
+    transform: scale(1.001);
+    white-space: nowrap;
+}
+
+.landscape {
+    // height: 100vh;
+    margin: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.vue--login-intro--dark .vue--login-intro__heading[data-v-61a9cedc] {
+    color: #fff;
+    opacity: 0.7;
+}
+@media only screen and (min-width: 58.125em) {
+    .vue--login-intro__intro .vue--login-intro__heading[data-v-61a9cedc] {
+        font-size: 2.5rem;
+        line-height: 3.25rem;
+    }
+}
+@media only screen and (min-width: 45em) {
+    h1.vue--heading[data-v-8dd2f746] {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+}
+h1.vue--heading[data-v-8dd2f746] {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+}
+
+.scanner-container {
+    // background: linear-gradient(180deg, #6a1b9a, #ab47bc); /* Gradient background */
+    color: white; /* Text color */
+    padding: 40px; /* Padding around the container */
+    text-align: center; /* Center text */
+}
+
+.scanner-title {
+    margin-left: 5rem;
+    //font-size: 28px; /* Title font size */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.steps {
+    // text-align: center;
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Center the steps */
+    // gap: 40px; /* Space between steps */
+}
+
+// .step {
+//     // text-align: center;
+//     display: flex; /* Flexbox for vertical alignment */
+//     flex-direction: column; /* Stack icon and text vertically */
+//     align-items: center; /* Center items */
+// }
+
+// .icon {
+//     font-size: 20px; /* Icon size */
+//     margin-bottom: 10px; /* Space below the icon */
+// }
+
+// .step p {
+//     font-size: 16px; /* Step text size */
+//     margin: 0; /* Remove default margin */
+// }
+
+.steps {
+    display: flex; /* Use flexbox for the steps container */
+    justify-content: center; /* Center the steps */
+    gap: 20px; /* Space between steps */
+}
+
+.step {
+    display: flex; /* Use flexbox for the step */
+    align-items: center; /* Align items vertically in the center */
+    // width: 100%; /* Full width for the step */
+}
+
+.icon {
+    font-size: 24px; /* Adjust icon size */
+    // margin-right: 10px; /* Space between icon and text */
+}
+
+.content {
+    padding: 0;
+    font-size: 16px; /* Text size */
+    //margin: 0; /* Remove default margin */
+    margin-left: 1.5rem;
+}
+
+.headingconatiner {
+    background-color: #002c77; /* Semi-transparent background */
+    padding: 20px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    border-radius: 10px;
+    //max-width: 600px;
+    position: relative; /* Allows absolute positioning of the logo */
+}
+.logo {
+    position: absolute; /* Position the logo absolutely within the container */
+    top: 32px; /* Adjust as needed */
+    left: 12px; /* Adjust as needed */
+    //width: 100px; /* Set a width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    //z-index: 1; /* Ensure the logo is above other content */
+}

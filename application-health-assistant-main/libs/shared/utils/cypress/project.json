@@ -1,0 +1,27 @@
+{
+    "name": "cypress",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/shared/utils/cypress/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/shared/utils/cypress/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/libs/shared/utils/cypress"],
+            "options": {
+                "jestConfig": "libs/shared/utils/cypress/jest.config.js",
+                "passWithNoTests": true,
+                "stylePreprocessorOptions": {
+                    "includePaths": ["libs/common/ui/styles/"]
+                }
+            }
+        }
+    },
+    "tags": []
+}

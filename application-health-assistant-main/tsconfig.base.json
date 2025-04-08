@@ -1,0 +1,37 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2022",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@app/config": ["libs/shared/config/src/index.ts"],
+            "@application-health-assistant/common-styles": ["libs/shared/styles"],
+            "@application-health-assistant/shared-angular-utils/*": [
+                "libs/shared/angular-utils/src/*"
+            ],
+            "@application-health-assistant/shared-api-model/*": ["libs/shared/api/src/*"],
+            "@application-health-assistant/shared-nestjs-utils": [
+                "libs/shared/nestjs-utils/src/index.ts"
+            ],
+            "@application-health-assistant/shared-utils-cypress": [
+                "libs/shared/utils/cypress/src/index.ts"
+            ],
+            "@application-health-assistant/shared-utils-testing": [
+                "libs/shared/utils/testing/src/index.ts"
+            ]
+        },
+        "resolveJsonModule": true
+    },
+    "exclude": ["node_modules", "tmp"]
+}

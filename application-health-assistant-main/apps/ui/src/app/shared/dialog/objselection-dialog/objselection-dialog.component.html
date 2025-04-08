@@ -1,0 +1,76 @@
+<div class="popup-container">
+    <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+    <div class="popup-header">
+        <h2>Select Objects</h2>
+    </div>
+    <div class="obj-content">
+        <table mat-table [dataSource]="dataSource" class="mat-table">
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef style="width: 5% !important">
+                    <mat-checkbox
+                        class="header-checkbox"
+                        (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    ></mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox
+                        [ngClass]="{ 'checkbox-disabled': row.excluded }"
+                        (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        [disabled]="row.excluded"
+                    ></mat-checkbox>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef style="width: 7% !important">Id</th>
+                <td mat-cell *matCellDef="let element">{{ element?.id }}</td>
+            </ng-container>
+            <ng-container matColumnDef="fullName">
+                <th mat-header-cell *matHeaderCellDef style="width: 30% !important">File Name</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.fullName.substring(0, element.fullName.lastIndexOf('.')) }}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="mangling">
+                <th mat-header-cell *matHeaderCellDef style="width: 52% !important">Method Name</th>
+                <td mat-cell *matCellDef="let element">{{ element.mangling }}</td>
+            </ng-container>
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef style="width: 8% !important">Language</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.type ? element.type.split(' ')[0] : element.type }}
+                </td>
+            </ng-container>
+            <tr
+                mat-header-row
+                [ngClass]="'highlight-table-header'"
+                *matHeaderRowDef="displayedColumns; sticky: true"
+            ></tr>
+            <tr
+                mat-row
+                *matRowDef="let row; columns: displayedColumns"
+                (click)="!row.excluded && selection.toggle(row)"
+                [ngClass]="{ 'checkbox-disabled': row.excluded }"
+            ></tr>
+        </table>
+    </div>
+    <div class="errorDisplay" *ngIf="errorDisplay">
+        <span>Please first select the Object to add in the request.</span>
+    </div>
+    <div class="ai-req">
+        <div class="action">
+            <button mat-button class="addButton" (click)="logSelection()">Add to request</button>
+            <button mat-button class="cancelButton" mat-dialog-close>Cancel</button>
+        </div>
+        <div class="pagination">
+            <mat-paginator
+                [pageSizeOptions]="[25, 50, 100]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+            ></mat-paginator>
+        </div>
+    </div>
+</div>
