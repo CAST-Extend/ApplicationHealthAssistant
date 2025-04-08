@@ -1,0 +1,27 @@
+{
+    "name": "shared-nestjs-utils",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/shared/nestjs-utils/src",
+    "prefix": "application-health-assistant",
+    "tags": [],
+    "targets": {
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/libs/shared/nestjs-utils"],
+            "options": {
+                "jestConfig": "libs/shared/nestjs-utils/jest.config.js"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/shared/nestjs-utils/src/**/*.ts",
+                    "libs/shared/nestjs-utils/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        }
+    }
+}

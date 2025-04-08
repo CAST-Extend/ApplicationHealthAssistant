@@ -1,0 +1,6 @@
+{"level":"info","message":"Authentication started","timestamp":"2025-03-19T12:34:46.403Z"}
+{"error":{},"level":"error","message":"Failed retrieving token from headers","timestamp":"2025-03-19T12:34:46.405Z"}
+{"error":{"message":"Missing or invalid authentication header","name":"UnauthorizedException","options":{},"response":{"error":"Unauthorized","message":"Missing or invalid authentication header","statusCode":401},"status":401},"level":"error","message":"Authentication Failed","timestamp":"2025-03-19T12:34:46.405Z"}
+{"level":"info","message":"Authentication started","timestamp":"2025-03-19T12:37:18.748Z"}
+{"error":{},"level":"error","message":"Failed retrieving token from headers","timestamp":"2025-03-19T12:37:18.749Z"}
+{"error":{"message":"Missing or invalid authentication header","name":"UnauthorizedException","options":{},"response":{"error":"Unauthorized","message":"Missing or invalid authentication header","statusCode":401},"status":401},"level":"error","message":"Authentication Failed","timestamp":"2025-03-19T12:37:18.749Z"}

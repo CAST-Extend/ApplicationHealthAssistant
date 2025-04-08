@@ -1,0 +1,24 @@
+{
+    "name": "shared-utils-testing",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/shared/utils/testing/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/shared/utils/testing/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/libs/shared/utils/testing"],
+            "options": {
+                "jestConfig": "libs/shared/utils/testing/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}

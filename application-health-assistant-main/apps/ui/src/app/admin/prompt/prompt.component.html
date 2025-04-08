@@ -1,0 +1,137 @@
+<section>
+    <div class="body">
+        <!-- <div id="cover-spin" *ngIf="spinnerDisplay"></div> -->
+        <div>
+            <span class="title">Admin Dashboard</span>
+        </div>
+        <!-- <div class="adminNav">
+            <button mat-flat-button class="adminNavLinks">New Project Onboard</button>
+            <button mat-flat-button class="adminNavLinks">Add Prompt</button>
+        </div> -->
+
+        <div>
+            <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+            <!-- The toolbar of our app -->
+            <div class="row">
+                <p class="titleDetail">Prompt List</p>
+
+                <button
+                    class="addAppBtn"
+                    mat-raised-button
+                    color="accent"
+                    (click)="openAddEditPromptDialog()"
+                >
+                    Add Prompt
+                </button>
+            </div>
+
+            <!-- The body of our app -->
+            <div class="main-body">
+                <div class="table-container">
+                    <table mat-table [dataSource]="dataSource" matSort>
+                        <!-- <ng-container matColumnDef="issueid">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Issue ID</th>
+                            <td mat-cell *matCellDef="let row">{{ row.issueid }}</td>
+                        </ng-container> -->
+                        <ng-container matColumnDef="issuename">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Issue Title</th>
+                            <td mat-cell *matCellDef="let row">{{ row.issuename }}</td>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="enabled">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Prompt Applied
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.enabled }}</td>
+                        </ng-container> -->
+                        <ng-container matColumnDef="technologies">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Technology</th>
+                            <td mat-cell *matCellDef="let row">
+                                <div *ngFor="let prompt of row.technologies; let i = index">
+                                    <div
+                                        class="techBorder"
+                                        *ngIf="prompt.prompts.length == 1; else other_content"
+                                    >
+                                        <tr>
+                                            {{
+                                                prompt.technology
+                                            }}
+                                        </tr>
+                                    </div>
+                                    <ng-template #other_content>
+                                        <div
+                                            class="techBorder"
+                                            *ngFor="let promptD of prompt.prompts"
+                                        >
+                                            <tr>
+                                                {{
+                                                    prompt.technology
+                                                }}
+                                            </tr>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="prompt">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Prompt</th>
+                            <td mat-cell *matCellDef="let row">
+                                <div
+                                    class="promptDiv"
+                                    *ngFor="let prompt of row.technologies; let i = index"
+                                >
+                                    <div
+                                        class="promptDivIn"
+                                        *ngFor="let prompt of prompt.prompts; let j = index"
+                                    >
+                                        <tr>
+                                            {{
+                                                prompt.prompt
+                                            }}
+                                        </tr>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                            <td mat-cell *matCellDef="let row">
+                                <div
+                                    class="promptDiv"
+                                    *ngFor="let allprompt of row.technologies; let i = index"
+                                >
+                                    <div
+                                        class="promptDivIn"
+                                        *ngFor="let prompt of allprompt.prompts; let j = index"
+                                    >
+                                        <tr>
+                                            <span
+                                                (click)="openEditForm(row, i, j)"
+                                                class="action-icon"
+                                                style="margin-right: 5px"
+                                            >
+                                                <mat-icon color="primary">edit</mat-icon>
+                                            </span>
+                                            <span
+                                                (click)="deleteApplication(row, i, prompt)"
+                                                class="action-icon"
+                                            >
+                                                <mat-icon color="warn">delete</mat-icon>
+                                            </span>
+                                        </tr>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <tr
+                            mat-header-row
+                            [ngClass]="'highlight-table-header'"
+                            *matHeaderRowDef="displayedColumns; sticky: true"
+                        ></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

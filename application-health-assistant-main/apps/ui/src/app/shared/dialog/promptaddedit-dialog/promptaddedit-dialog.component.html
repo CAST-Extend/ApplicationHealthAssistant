@@ -1,0 +1,46 @@
+<div class="dialogTitle">
+    <h3>{{ data ? 'Edit' : 'Add' }} Prompt</h3>
+</div>
+<form [formGroup]="promptForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Issue Name:</mat-label>
+                <mat-select formControlName="issueid">
+                    <mat-option *ngFor="let issue of issueList" value="{{ issue.issueId }}">{{
+                        issue.issueTitle
+                    }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Technology:</mat-label>
+                <mat-select formControlName="technology">
+                    <mat-option value="java">Java</mat-option>
+                    <mat-option value="javascript">Javascript</mat-option>
+                    <mat-option value="c#">c#</mat-option>
+                    <mat-option value="python">Python</mat-option>
+                    <mat-option value="typescript">Typescript</mat-option>
+                    <mat-option value="php">Php</mat-option>
+                    <mat-option value="sql">Sql</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Prompt</mat-label>
+                <textarea
+                    matInput
+                    rows="5"
+                    placeholder="i.e Please refactor the code"
+                    formControlName="prompt"
+                ></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button mat-button class="addButton" type="submit">{{ data ? 'Update' : 'Save' }}</button>
+        <button mat-button mat-dialog-close class="cancelButton">Cancel</button>
+    </div>
+</form>

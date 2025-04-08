@@ -1,0 +1,118 @@
+@import 'app/home';
+.body {
+    margin: 10px;
+    padding: 10px;
+}
+.title {
+    font-size: 22px;
+    padding: 10px;
+    font-weight: bold;
+    color: #002c77;
+    font-family: 'MMC Display-Condensed-Bold';
+}
+.titleDetail {
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px;
+    color: #002c77;
+}
+.adminNavLinks {
+    padding: 10px;
+    background-color: #002c77 !important;
+    color: #ffffff !important;
+    margin: 5px !important;
+    height: 100px;
+    width: 100px;
+    border: 2px solid;
+    border-radius: 20px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+mat-form-field {
+    width: 100%;
+    margin: auto;
+}
+.action-icon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.addAppBtn {
+    float: right;
+    margin: 5px 0px;
+    background-color: #082c74 !important;
+    color: white !important;
+}
+.addAppBtn:hover {
+    background-color: #0a3e8c !important;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+}
+.mat-mdc-table {
+    padding: 5px 10px !important;
+}
+.actionBtnRow {
+    line-height: 75px;
+    max-height: 200px;
+    min-height: 50px;
+}
+.mat-column-action {
+    width: 200px;
+}
+.highlight-table-header {
+    background-color: #002c77;
+    color: #ffffff;
+}
+
+table td {
+    padding: 15px;
+    vertical-align: middle;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 30px;
+}
+td > div div {
+    height: 75px;
+    padding: 5px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+#cover-spin {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    z-index: 9999 !important;
+}
+
+#cover-spin::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 4px solid #000 !important;
+    border-top-color: transparent !important;
+    border-radius: 50% !important;
+    animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

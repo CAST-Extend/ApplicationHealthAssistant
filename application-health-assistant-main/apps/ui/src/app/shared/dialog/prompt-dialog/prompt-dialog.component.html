@@ -1,0 +1,51 @@
+<div class="promptSection" *ngIf="promptList$?.length != 0">
+    <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+    <div *ngIf="promptDetail?.prompts?.length > 0">
+        <h2 class="prompt-header">Prompt Details</h2>
+        <div class="table-container">
+            <table mat-table [dataSource]="promptList$" class="mat-elevation-z8">
+                <ng-container matColumnDef="promptid">
+                    <th mat-header-cell *matHeaderCellDef class="highlight-table-header">Issue</th>
+                    <td mat-cell *matCellDef="let element">{{ this.data?.issue }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="prompt">
+                    <th mat-header-cell *matHeaderCellDef class="highlight-table-header">Prompt</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div *ngFor="let prompt of element; let i = index" class="prompt-row">
+                            <mat-radio-button
+                                [checked]="prompt?.promptid == selectedPrompt"
+                                (change)="radioSelected(prompt?.promptid)"
+                                [value]="prompt?.promptid"
+                            ></mat-radio-button>
+                            <textarea rows="8" cols="50" readonly>{{ prompt?.prompt }}</textarea>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="language">
+                    <th mat-header-cell *matHeaderCellDef class="highlight-table-header">
+                        Language
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{ promptDetail.technology }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+        <div class="ai-fix">
+            <button mat-button class="fixButton" (click)="fix()">Fix with AI</button>
+            <button mat-button class="cancelButton" mat-dialog-close>Cancel</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="promptList$?.length == 0 && !spinnerDisplay" style="width: 500px">
+    <h2 mat-dialog-title>Fix with AI</h2>
+    <mat-dialog-content>
+        Prompts are not available for this issue ID. Please contact the site admin to create
+        relevant prompts!
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" style="padding-right: 25px">
+        <button class="closeButton" mat-raised-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</div>

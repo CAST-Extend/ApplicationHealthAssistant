@@ -1,0 +1,96 @@
+@import 'app/app';
+@import 'app/navbar';
+@import 'app/footer';
+#header {
+    border-bottom: 1px solid #002c77;
+}
+.polaris-logo {
+    width: 12rem;
+    height: 5rem;
+    margin-top: 1.5rem;
+    margin-left: -1rem;
+}
+
+.header-logo {
+    margin: 0;
+    max-height: 4rem;
+    max-width: 36rem;
+    top: 50%;
+    width: 15rem;
+    height: 1.5rem;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+}
+.app {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.app-name {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #002c77;
+    font-family: 'MMC Display-Condensed-Bold';
+}
+.footer.responsive-grid {
+    height: 16% !important;
+    background-color: black !important;
+}
+
+.responsive-grid-col {
+    gap: 0% !important;
+    margin-top: -0.8%;
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: #000000;
+    padding: 0px 25px 0px 15px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    cursor: pointer;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: azure;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.menu a {
+    font-size: 14px !important;
+    padding-left: 10px;
+}
+.logout {
+    cursor: pointer;
+}

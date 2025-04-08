@@ -1,0 +1,27 @@
+{
+    "name": "shared-angular-utils",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/angular-utils/src",
+    "prefix": "polaris",
+    "tags": [],
+    "targets": {
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/libs/angular-utils"],
+            "options": {
+                "jestConfig": "libs/shared/angular-utils/jest.config.js"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/angular-utils/src/**/*.ts",
+                    "libs/angular-utils/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        }
+    }
+}

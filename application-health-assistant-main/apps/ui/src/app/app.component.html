@@ -1,0 +1,86 @@
+<ng-container *ngIf="!isLoginPage()">
+    <nav id="header" data-cy="header">
+        <ul>
+            <li class="mmc-logo">
+                <div class="app">
+                    <a routerLink="/home">
+                        <img data-cy="logo" src="assets/cast-logo.jpg" />
+                    </a>
+                    <span data-cy="h1-title" class="app-name">{{ title }}</span>
+                </div>
+            </li>
+            <li class="burger" (click)="toggleMenu()">
+                <i class="material-icons">{{ isMenuOpen ? 'close' : 'menu' }}</i>
+            </li>
+            <li class="menu" [class.is-open]="isMenuOpen">
+                <!-- <a routerLink="/admin" class="menu-item" (click)="toggleMenu()" data-cy="nav-task-list">Application List</a> -->
+                <a
+                    *ngIf="username && !spinnerDisplay"
+                    routerLink="/home"
+                    class="menu-item"
+                    (click)="toggleMenu()"
+                    data-cy="nav-link"
+                    >Home</a
+                >
+                <a *ngIf="userAdminAccess || userSuperAdminAccess" class="dropdown">
+                    <button class="dropbtn">
+                        Admin
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a *ngIf="userSuperAdminAccess" routerLink="/admin/usermanagement"
+                            >User Management</a
+                        >
+                        <a routerLink="/admin">Application List</a>
+                        <a routerLink="/admin/prompt">Prompts</a>
+                    </div>
+                </a>
+                <a *ngIf="username && !spinnerDisplay">Hello, {{ username }}</a>
+                <!-- <a *ngIf="!username && !spinnerDisplay">Not logged in</a> -->
+                <a *ngIf="username && !spinnerDisplay" class="logout" (click)="logout()">Logout</a>
+                <!-- <a href="" class="menu-item" (click)="logout()" data-cy="nav-link">Logout</a> -->
+                <!-- <a routerLink="/tasks" class="menu-item" (click)="toggleMenu()" data-cy="nav-task-list">Task List</a>
+                    <a routerLink="/mmc-brand" class="menu-item" data-cy="nav-task-list">MMC Brand</a>
+                    <a routerLink="/insight" href="#" class="menu-item" (click)="toggleMenu()" data-cy="nav-link">Insight</a>
+                   
+                    <a routerLink="/">
+                        <img class="polaris-logo" src="assets/polaris_logo.svg" />
+                    </a> -->
+            </li>
+        </ul>
+    </nav>
+</ng-container>
+<main class="main" data-cy="main" [class.blur]="isMenuOpen">
+    <div *ngIf="apiUnreachable === true || apiError === true" class="main__api_error">
+        <p *ngIf="apiUnreachable === true">Tasks API is unreachable</p>
+        <p *ngIf="apiError === true">Tasks API error</p>
+    </div>
+    <!-- <div>
+        <h2>Your Repositories:</h2>
+        <ul>
+            <li *ngFor="let repo of repos">
+                <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+            </li>
+        </ul>
+    </div> -->
+    <router-outlet></router-outlet>
+</main>
+<ng-container *ngIf="!isLoginPage()">
+    <footer class="footer responsive-grid">
+        <div>
+            <img src="assets/cast-logo.jpg" />
+			<div>
+            CAST envisions a world illuminated by Software Intelligence.
+			</div>
+            <div data-cy="copyright">
+                © 2025 CAST Software. All Rights Reserved.
+            </div>
+        </div>
+        <div
+            class="responsive-grid-col responsive-grid-flex-grow responsive-grid-flex-end"
+            style="flex-direction: column-reverse; align-self: flex-start"
+        >
+            <p data-cy="version" class="mmc-typography-body-14-large-regular">v{{ appVersion }}</p>
+        </div>
+    </footer>
+</ng-container>

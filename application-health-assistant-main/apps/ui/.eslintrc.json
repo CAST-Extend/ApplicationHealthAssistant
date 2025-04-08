@@ -1,0 +1,49 @@
+{
+    "extends": ["../../.eslintrc.json"],
+    "ignorePatterns": ["!**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "extends": [
+                "plugin:@nx/angular",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "@mmctech-artifactory/polaris-base"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "devCoe",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "polaris",
+                        "style": "kebab-case"
+                    }
+                ],
+                "import/extensions": [
+                    "error",
+                    "ignorePackages",
+                    {
+                        "js": "never",
+                        "jsx": "never",
+                        "ts": "never",
+                        "tsx": "never"
+                    }
+                ],
+                "no-shadow": "off",
+                "@typescript-eslint/no-shadow": ["error"]
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@nx/angular-template", "@mmctech-artifactory/polaris-base"],
+            "rules": {}
+        }
+    ]
+}

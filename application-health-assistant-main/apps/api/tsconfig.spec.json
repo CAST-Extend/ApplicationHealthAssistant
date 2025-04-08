@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "module": "commonjs",
+        "types": ["jest", "node"],
+        "esModuleInterop": true
+    },
+    "include": [
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.d.ts",
+        "../ui/src/app/git-callback/git.guard.spec.ts"
+    ]
+}

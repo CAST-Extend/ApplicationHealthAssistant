@@ -1,0 +1,50 @@
+.dialogTitle {
+    padding: 20px;
+    margin-bottom: 5px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 5px 0px 0px 0px;
+}
+mat-form-field {
+    width: 100%;
+}
+mat-hint {
+    margin: 5px;
+}
+.action-btns {
+    float: right;
+    margin: 0px 10px;
+}
+.action-btns button {
+    padding: 0px 5px;
+    margin: 0px 5px;
+    min-height: 35px;
+}
+.addButton,
+.cancelButton {
+    background-color: #082c74 !important;
+    color: white !important;
+    border: none !important;
+    height: 35px;
+    min-width: 70px !important;
+    cursor: pointer;
+    border-radius: 4px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.addButton:hover,
+.cancelButton:hover {
+    background-color: #0a3e8c !important;
+}
+
+.addButton:hover,
+.cancelButton:hover {
+    background-color: #0a3e8c !important;
+}
+
+.mat-mdc-dialog-content {
+    padding: 5px 20px !important;
+}

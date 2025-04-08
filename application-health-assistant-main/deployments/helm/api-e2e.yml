@@ -1,0 +1,15 @@
+image:
+    repository: $PROJECT_NAME/api-e2e
+    tag: $IMAGE_TAG
+
+job:
+    backoffLimit: 0 # Do not retry
+
+podLabels:
+    app-id: $PROJECT_NAME
+
+env:
+    # Variables for the entrypoint.
+    IS_VAULT_INTEGRATED: 'false'
+    # Variables for the tests.
+    API_API_BASE_URL: $API_BASE_URL

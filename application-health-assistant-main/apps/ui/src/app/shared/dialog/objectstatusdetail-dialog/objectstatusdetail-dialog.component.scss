@@ -1,0 +1,124 @@
+.dialog-title {
+    margin-bottom: 8px;
+    color: #082c74 !important;
+    padding: 10px !important;
+    text-align: left !important;
+    font-size: 14px;
+    border-bottom: 2px solid #082c74;
+    display: flex;
+}
+
+.closeButton {
+    margin-left: 5px;
+    background-color: #082c74 !important;
+    color: white !important;
+    border: none !important;
+    height: 35px;
+    width: 60px !important;
+    padding: 5px;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+
+.highlight-disabled {
+    background-color: #949494 !important;
+    color: #ffffff;
+}
+
+.action {
+    display: flex;
+}
+
+.status {
+    margin-top: 10px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    max-height: 325px !important;
+    overflow-y: auto !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+}
+
+th {
+    background-color: #082c74 !important;
+    color: #ffffff !important;
+    padding: 6px !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    height: 30px !important;
+    line-height: 1.2 !important;
+}
+
+td {
+    padding: 6px !important;
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    text-align: left !important;
+}
+
+.status-content {
+    margin: 10px 10px 0px 10px;
+    max-width: 1150px;
+    max-height: 500px;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ai-req {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.noReqData {
+    text-align: center;
+    padding: 10px;
+}
+
+.highlight-table-header {
+    background-color: #002c77;
+    color: #ffffff;
+}
+
+#cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#cover-spin::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}

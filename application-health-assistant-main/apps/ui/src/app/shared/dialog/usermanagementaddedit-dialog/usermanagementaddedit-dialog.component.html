@@ -1,0 +1,45 @@
+<div class="dialogTitle">
+    <h3>{{ formType ? 'Add' : 'Edit' }} User</h3>
+</div>
+<form [formGroup]="userManagementForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <!-- <div id="cover-spin" *ngIf="spinnerDisplay"></div> -->
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>User Name:</mat-label>
+                <input
+                    matInput
+                    placeholder="i.e FirstName-LastName_mmcgh"
+                    formControlName="userName"
+                    [readonly]="userNameDisable"
+                />
+            </mat-form-field>
+        </div>
+        <div class="errorDiv" *ngIf="showError">
+            <span>{{ errorMsg }}</span>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>User Type:</mat-label>
+                <mat-select formControlName="userType">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="superAdmin">Super Admin</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button
+            mat-button
+            class="addButton"
+            [ngClass]="{
+                'highlight-disabled': !userManagementForm.valid || showError || spinnerDisplay,
+            }"
+            [disabled]="!userManagementForm.valid || showError || spinnerDisplay"
+            type="submit"
+        >
+            {{ formType ? 'Save' : 'Update' }}
+        </button>
+        <button mat-button mat-dialog-close class="cancelButton">Cancel</button>
+    </div>
+</form>

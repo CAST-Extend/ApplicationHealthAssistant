@@ -1,0 +1,91 @@
+appId: $PROJECT_NAME
+env:
+    VAULT_NAMESPACE: $VAULT_NAMESPACE
+    VAULT_ROLE_NAME: $VAULT_ROLE_NAME
+    VAULT_URL: $VAULT_URL
+    SECRETS_URL: $SECRETS_URL
+    VAULT_ADDR: $VAULT_ADDR
+    PROJ_NAME: $PROJECT_NAME/$APP_RELEASENAME:$IMAGE_TAG
+    DD_SERVICE: $PROJECT_NAME
+    DD_VERSION: $IMAGE_TAG
+    DD_ENV: $RUNTIME_ENV
+    DD_APM_ENABLED: false # Please consult with Polaris documentation on APM tracing at https://mmcglobal.sharepoint.com/sites/EnterpriseArchitecture/SitePages/Application-Performance-Monitoring.aspx
+    DD_TRACE_SAMPLE_RATE: 1.0
+    UI_API_BASE_URL: $UI_API_BASE_URL
+    UI_GIT_TOKEN: $UI_GIT_TOKEN
+    UI_CAST_URL: $UI_CAST_URL
+
+image:
+    repository: $PROJECT_NAME/$APP_RELEASENAME
+    tag: $IMAGE_TAG
+replicaCount: 2
+deploymentKind: Deployment
+arguments: []
+securityContext: {}
+strategy:
+    enabled: true
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 100%
+        maxUnavailable: 50%
+resources:
+    requests:
+        cpu: 0.1
+        memory: 256Mi
+        ephemeral-storage: 512Mi
+    limits:
+        cpu: 0.8
+        memory: 256Mi
+        ephemeral-storage: 1Gi
+appTierLabel: application
+podLabels:
+    app-id: $PROJECT_NAME
+    allow-ingress: true
+networking:
+    ports:
+        - name: http
+          servicePort: 80
+          containerPort: 8080
+          protocol: TCP
+    ingressEnabled: true
+    ingressServicePort: 80
+    ingresses:
+        - name: default
+          rules:
+              - hostname: $HOSTNAME
+                path: /
+                allNodes: false
+                tlsCertificateSecret: $APP_RELEASENAME-tls-secret
+          annotations:
+              cert-manager.io/cluster-issuer: oss2-ci-0-acme-sectigo
+secrets: {}
+envVarsFromSecrets: []
+servicesEndpoints: []
+startupProbe:
+    httpGet:
+        port: 8080
+        path: /
+    # A start-up probe is configured for cases where the application takes a long time
+    # to start due to delays in the entrypoint script connecting to Vault.
+    # This configuration gives the entrypoint script 5 minutes to retry connecting to Vault
+    # before the Pod is destroyed and re-created.
+    periodSeconds: 15
+    failureThreshold: 20
+readinessProbe:
+    httpGet:
+        port: 8080
+        path: /
+    # Kubernetes will check every 30 seconds that the Pod is healthy. If this fails,
+    # traffic will stop being routed to this Pod for as long as the readiness
+    # probe is failing. This probe will only start executing after the start-up probe has succeeded.
+    periodSeconds: 30
+livenessProbe:
+    httpGet:
+        port: 8080
+        path: /
+    # After 4 failures (2 minutes) of the liveness probe, the Pod will be destroyed and re-created.
+    # This probe will only start executing after the start-up probe has succeeded.
+    periodSeconds: 30
+    failureThreshold: 4
+skipServiceAccountCreation: true
+serviceAccountName: $KUBERNETES_SERVICE_ACCOUNT_NAME

@@ -1,0 +1,54 @@
+<section class="home-container">
+    <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+    <div class="appSelectDiv" *ngIf="!showDetail">
+        <div class="selectAppText">Select an application:</div>
+        <ng-select
+            class="custom"
+            placeholder="Search in the list"
+            [items]="projectList$"
+            bindLabel="SSP_AppName"
+            bindValue="ProductCode"
+            [(ngModel)]="selected"
+            (change)="onChangeMtd($event)"
+        ></ng-select>
+    </div>
+
+    <div *ngIf="selected != undefined && !spinnerDisplay" class="app-details">
+        <div class="appVulDetails">
+            <h4>
+                Repository:
+                <a target="_blank" href="{{ appData?.repoUrl || '' }}">{{
+                    appData?.repoUrl?.split('/').pop() || 'N/A'
+                }}</a>
+            </h4>
+            <!-- <h4 style="margin-top: 0.5%">
+                Branch Name:
+                {{ appdetails?.branch || 'N/A' }}
+            </h4>
+            <h4 style="margin-top: 0.5%">
+                CAST HL Last Scan:
+                {{ appdetails?.lastscan || 'N/A' }}
+            </h4> -->
+            <h4 style="margin-top: 0.5%">
+                CAST Imaging Last Scan:
+                {{ appdetails?.castimagelastdate || 'N/A' }}
+            </h4>
+        </div>
+        <h4 style="margin-top: 20px; margin-bottom: 0.5%">What can we help you with today?</h4>
+        <div *ngIf="showGreenPatternsBox" class="healthStatus">
+            <div class="healthStat">
+                <button
+                    (click)="greenImpact()"
+                    [ngClass]="{ 'highlight-disabled': appData?.greenDetailCount == 0 }"
+                    [disabled]="appData?.greenDetailCount == 0"
+                    class="blockerCount"
+                >
+                    <span style="color: black">
+                        Green<br />Impact
+                        <h2 class="paddT10">{{ appData?.greenDetailCount || '-' }}</h2>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

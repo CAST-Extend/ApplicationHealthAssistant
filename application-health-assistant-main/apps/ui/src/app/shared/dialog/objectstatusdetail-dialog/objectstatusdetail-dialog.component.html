@@ -1,0 +1,56 @@
+<div>
+    <div class="status-content">
+        <div id="cover-spin" *ngIf="spinnerDisplay"></div>
+        <h2 class="dialog-title">Objects</h2>
+        <div class="status" *ngIf="getObjDetails?.objData?.length > 0 && !getObjDetails?.status">
+            <table mat-table [dataSource]="getObjDetails?.objData" class="mat-elevation-z8">
+                <ng-container matColumnDef="objectid">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">Object Id</th>
+                    <td mat-cell *matCellDef="let element">{{ element.objectid }}</td>
+                </ng-container>
+                <ng-container matColumnDef="filefullname">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">File Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.filefullname }}</td>
+                </ng-container>
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">Language</th>
+                    <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+                </ng-container>
+                <tr
+                    mat-header-row
+                    [ngClass]="'highlight-table-header'"
+                    *matHeaderRowDef="displayedColumns; sticky: true"
+                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+        <div class="status" *ngIf="getObjDetails?.objData?.length > 0 && getObjDetails?.status">
+            <table mat-table [dataSource]="getObjDetails?.objData" class="mat-elevation-z8">
+                <ng-container matColumnDef="objectid">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">Object Id</th>
+                    <td mat-cell *matCellDef="let element">{{ element.objectid }}</td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">Status</th>
+                    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+                </ng-container>
+                <ng-container matColumnDef="message">
+                    <th mat-header-cell *matHeaderCellDef class="centered-text">Message</th>
+                    <td mat-cell *matCellDef="let element">{{ element.message }}</td>
+                </ng-container>
+                <tr
+                    mat-header-row
+                    [ngClass]="'highlight-table-header'"
+                    *matHeaderRowDef="displayedColumnsStatus; sticky: true"
+                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsStatus"></tr>
+            </table>
+        </div>
+        <div class="noReqData" *ngIf="getObjDetails?.objData?.length == 0">
+            <span><b>Object not found !!!</b></span>
+        </div>
+    </div>
+    <div class="ai-req">
+        <button mat-button mat-dialog-close class="closeButton">Close</button>
+    </div>
+</div>
