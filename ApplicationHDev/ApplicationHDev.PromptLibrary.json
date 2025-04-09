@@ -1,0 +1,238 @@
+[{
+  "_id": {
+    "$oid": "66cc32a3c4ca8cb884ab4251"
+  },
+  "applicationid": null,
+  "issueid": 1200205,
+  "issuename": "",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "C#",
+      "prompts": [
+        {
+          "promptid": "66cc32a3c4ca8cb884ab4252",
+          "prompt": "behave like a skilled c# software developer, I need a code improvement suggestion for a reported Green Deficiency , you will fix the code review issue: 'Avoid empty catch blocks.', in the process, you should add appropriate error handling logic within the catch block which can be reused for other similar cases to ensure that exceptions are properly handled and potential errors are not overlooked. Refactor the code to include meaningful error handling code within the catch block., please also consider logging the error and take any necessary actions to handle the exception appropriately. Your goal is to make the code more robust, reliable, and in line with best practices."
+        }
+      ]
+    },
+    {
+      "technology": "javascript",
+      "prompts": [
+        {
+          "promptid": "66cc32a3c4ca8cb884ab4253",
+          "prompt": "Review code snippet  for Javascript technology and update the catch block to handle the exception properly. Ensure that the exception is logged or managed in a way that provides meaningful feedback or action.\n\nProblem Statement: Avoid empty catch blocks\n\nCode Example:\n\ntry {\n    // Some code that may throw an exception\n    performRiskyOperation();\n} catch (Exception e) {\n    // Empty catch block\n}\n\nExpected resolution:\n\npublic void exampleMethod() {\n        try {\n            // Some code that may throw an exception\n            performRiskyOperation();\n        } catch (Exception e) {\n            // Handle the exception by logging it\n            logger.log(Level.SEVERE, \"An error occurred while performing the operation\", e);\n        }\n    }\n\nInstructions for Resolution:\n\nUpdate the catch block to handle the exception by logging it or managing it appropriately.Ensure that the exception details (message and stack trace) are recorded to aid in debugging.Do not hallucinate.If you find multiple instances of empty catch block, please resolve all of them"
+        }
+      ]
+    },
+    {
+      "technology": "java",
+      "prompts": [
+        {
+          "promptid": "66cc32a3c4ca8cb884ab4254",
+          "prompt": "Please refactor the code to address the code review issue: Avoid empty catch blocks"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "670504114594d67cd4750700"
+  },
+  "applicationid": null,
+  "issueid": 1200138,
+  "issuename": "Green - Avoid instantiations inside loops",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "c#",
+      "prompts": [
+        {
+          "promptid": "670504f84594d67cd4750702",
+          "prompt": "Please refactor the code (written in C# language) to address the code review issue: Avoid instantiations inside loops. The intent is to initiate the variables outside the for loop.\n\nHere is a sample code that is following this practice\n\n\nint rateSetId = 0;\nstring planName= String.Empty;\nvar planDesign = null;\nfor (int i = 0; i < plans.Count; i++)\n{\n\trateSetId = plans.ElementAt(i).RateSetID;\n\tplanName = plans.ElementAt(i).RenewalsPlanName.Replace(\" -\", \"-\").Replace(\"- \", \"-\");\n\tplanDesign = new LookupManager().GetPlanDesign(planPeriodId, rateSetId, deliverableId);\n}"
+        }
+      ]
+    },
+    {
+      "technology": "javascript",
+      "prompts": [
+        {
+          "promptid": "670504114594d67cd4750708",
+          "prompt": "\"Act as a skilled software developer and programmer.\nIn the provided code, refactor the code to fix the following code review issue.\n\nCode Review Issue: Avoid instantiations inside loops\n\nEnsure to enhance performance and maintainability. Please fix the provided code and not the example code in the prompt. Use the example code as reference to fix the actual code\""
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "670504f84594d67cd4750701"
+  },
+  "applicationid": null,
+  "issueid": 1200136,
+  "issuename": "Green - Avoid String concatenation in loops",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "c#",
+      "prompts": [
+        {
+          "promptid": "670504f84594d67cd4750702",
+          "prompt": "Act like a Skilled C# Software Developer, to Avoid String concatenation in loops, refactor the code for review issue \"Avoid String concatenation in loops\", some background about the issue : When placed in a loop, String concatenation results in the creation and garbage collection of large numbers of temporary objects. This both consumes memory and can dramatically slow the program execution. in the remediation process, it is recommended to create a StringBuilder before entering the loop, and append to it within the loop, thus reducing the overhead. please strictly output the modified code and do not output the entire class."
+        },
+        {
+          "promptid": "1200136-1",
+          "prompt": "test 1200136 -1"
+        },
+        {
+          "promptid": "1200136-2",
+          "prompt": "test 1200136 -2"
+        }
+      ]
+    },
+    {
+      "technology": "java",
+      "prompts": [
+        {
+          "promptid": "670504f84594d67cd4750703",
+          "prompt": "Act as professional programmer and fix Avoid String concatenation in loops"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "6705057c4594d67cd4750702"
+  },
+  "applicationid": null,
+  "issueid": 1200139,
+  "issuename": "Green - Prefer comparison-to-0 in loop conditions",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "java",
+      "prompts": [
+        {
+          "promptid": 1,
+          "prompt": "Please refactor the code to as per the recommendation: Prefer comparison-to-0 in loop conditions"
+        }
+      ]
+    },
+    {
+      "technology": "javascript",
+      "prompts": [
+        {
+          "promptid": 2,
+          "prompt": "Act as a skilled software developer and programmer.\nIn the provided code, refactor the code to fix the following code review issue.\n\nCode Review Issue: Prefer comparison-to-0 in loop conditions\n\nEnsure to enhance performance and maintainability. Please fix the provided code and not the example code in the prompt. Use the example code as reference to fix the actual code"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "670506064594d67cd4750703"
+  },
+  "applicationid": null,
+  "issueid": 1200137,
+  "issuename": "Green - Avoid nested loops",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "C#",
+      "prompts": [
+        {
+          "promptid": "600506064594d67cd4750710",
+          "prompt": "Please refactor the code to as per the recommendation: Avoid nested loops"
+        }
+      ]
+    },
+    {
+      "technology": "java",
+      "prompts": [
+        {
+          "promptid": "670506064594d67cd4750710",
+          "prompt": "Please refactor the code to as per the recommendation: Avoid nested loops"
+        }
+      ]
+    },
+    {
+      "technology": "javascript",
+      "prompts": [
+        {
+          "promptid": "670506064594d67cd4750711",
+          "prompt": "Act as a skilled software developer and programmer.\nIn the provided code, refactor the code to fix the following code review issue.\n\nCode Review Issue: Avoid nested loops\n\nEnsure to enhance performance and maintainability. Please fix the provided code and not the example code in the prompt. Use the example code as reference to fix the actual code\n"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "6705074f4594d67cd4750704"
+  },
+  "applicationid": null,
+  "issueid": 1200126,
+  "issuename": "Green - Avoid Programs not using explicitly OPEN and CLOSE for files or streams",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "javascript",
+      "prompts": [
+        {
+          "promptid": "6705074f4594d67cd4750705",
+          "prompt": "Act as a skilled software developer and programmer.\nIn the provided code, refactor the code to fix the following code review issue.\n\nCode Review Issue: Avoid Programs not using explicitly OPEN and CLOSE for files or streams\n\nEnsure to enhance performance and maintainability. Please fix the provided code and not the example code in the prompt"
+        }
+      ]
+    },
+    {
+      "technology": "c#",
+      "prompts": [
+        {
+          "promptid": "1200126-1",
+          "prompt": "test 1200126-1"
+        },
+        {
+          "promptid": "1200126-2",
+          "prompt": "test 1200126-2"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "670507a24594d67cd4750705"
+  },
+  "applicationid": null,
+  "issueid": 1200143,
+  "issuename": "",
+  "prompttype": "generic",
+  "technologies": [
+    {
+      "technology": "c#",
+      "prompts": [
+        {
+          "promptid": "670507a24594d67cd4750706",
+          "prompt": "Act like a Skilled Software Developer,\nI need a code suggestion keeping in mind that garbage collector should not be used explicitly in the code,\nyou will fix the  code review issue \"Avoid using GC.Collect()\" or \"Avoid using 'System.gc' and 'Runtime.gc'\",\nin the process, you should  avoid using GC.Collect() since its very expensive processes and  let the system decide when it needs to collect the heap,\nplease remove any usage of it"
+        }
+      ]
+    }
+  ],
+  "type": "Green Deficiency",
+  "enabled": true
+}]
