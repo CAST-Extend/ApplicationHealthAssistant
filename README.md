@@ -15,7 +15,9 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
   - Write
   - Maintain
   - Admin
-  *(Any one required to create pull requests)*
+    *(Any one required to create pull requests)*
+- MongoDB for Storing the Data
+- Imaging V2.x API Bundle
 
 ### Onboarding Requirements
 - Application must have a repository on GitHub
