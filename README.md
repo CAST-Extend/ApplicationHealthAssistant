@@ -41,7 +41,10 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 ##### Imaging API Deployment Steps​
 - Imaging API Deployment CAST-Imaging-Api GitHub​
 - Deploy JAR File aip-console-sourcecodeexpolorer.jar​
-
+* Supports GitHub; extensible to other modern SCMs like Bitbucket upon custom request​ *
+## LLM Requirements​
+- Model URL & API Key
+​
 ### Onboarding Requirements
 - Application must have a repository on GitHub
 - Application must be onboarded on CAST HL and Imaging
