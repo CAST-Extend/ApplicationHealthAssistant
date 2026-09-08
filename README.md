@@ -45,6 +45,7 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 
 ## LLM Requirements​
 - Model URL & API Key
+
 Supports GitHub; extensible to other modern SCMs like Bitbucket upon custom request​
 ​
 ### Onboarding Requirements
