@@ -19,6 +19,29 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 - MongoDB for Storing the Data
 - Imaging V2.x API Bundle
 
+## Software Prerequisites For CodeCure Deployment​
+###3rd Party Software Requirements​
+- Software Installation​
+- Node.js with NPM​
+- Python 3.10.10 or higher​
+- Python dependencies (Refer Requirements.txt)​
+- MongoDB and MongoDB Compass​
+- Git ​
+- GitHub Requirements *​
+- User Account (Used for Login to CodeCure)​
+- Repository Access (Minimum Write/Maintain/Admin)​
+- OAuth App Setup​
+- CAST Products Requirements​
+- CAST Products ​
+- CAST Products Highlight + Imaging is licensed and installed​
+- Minimum CAST Product Versions:​
+- CAST Imaging ≥ 2.20.3-funcrel​
+- Highlight-MRI extension ≥ 1.0.9-funcrel​
+- Git Repository onboarded on CAST Highlight & Imaging​
+- Imaging API Deployment Steps​
+- Imaging API Deployment CAST-Imaging-Api GitHub​
+- Deploy JAR File aip-console-sourcecodeexpolorer.jar​
+
 ### Onboarding Requirements
 - Application must have a repository on GitHub
 - Application must be onboarded on CAST HL and Imaging
