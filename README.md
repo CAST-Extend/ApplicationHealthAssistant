@@ -19,7 +19,7 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 - MongoDB for Storing the Data
 - Imaging V2.x API Bundle
 
-## Software Prerequisites For CodeCure Deployment​
+## Software Prerequisites For AHA Deployment​
 ### 3rd Party Software Requirements​
 #### Software Installation​
 - Node.js with NPM​
@@ -41,9 +41,10 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 ##### Imaging API Deployment Steps​
 - Imaging API Deployment CAST-Imaging-Api GitHub​
 - Deploy JAR File aip-console-sourcecodeexpolorer.jar​
-* Supports GitHub; extensible to other modern SCMs like Bitbucket upon custom request​ *
+
 ## LLM Requirements​
 - Model URL & API Key
+*Supports GitHub; extensible to other modern SCMs like Bitbucket upon custom request​*
 ​
 ### Onboarding Requirements
 - Application must have a repository on GitHub
