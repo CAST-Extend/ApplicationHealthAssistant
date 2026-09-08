@@ -35,10 +35,10 @@ AHA (Application Health Assistant) is an AI-powered tool integrated with CAST Im
 ##### CAST Products ​
 - CAST Products Highlight + Imaging is licensed and installed​
 - Minimum CAST Product Versions:​
-- CAST Imaging ≥ 2.20.3-funcrel​
-- Highlight-MRI extension ≥ 1.0.9-funcrel​
+  - CAST Imaging ≥ 2.20.3-funcrel​
+  - Highlight-MRI extension ≥ 1.0.9-funcrel​
 - Git Repository onboarded on CAST Highlight & Imaging​
-- Imaging API Deployment Steps​
+##### Imaging API Deployment Steps​
 - Imaging API Deployment CAST-Imaging-Api GitHub​
 - Deploy JAR File aip-console-sourcecodeexpolorer.jar​
 
